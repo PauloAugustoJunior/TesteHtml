@@ -11,12 +11,13 @@
         if(xhr.readyState == 4 && xhr.status == 200) {
             window.location.href = exportUrl;
         }else{
+          window.location.href = "https://apps.apple.com/br/app/gan-gestão-de-alto-nível/id1529340462";
           console.log(xhr);
           document.getElementById("erro").innerHtml = "asdfasdfasdf: "+xhr.status;
         }
     }
     xhr.open('head',"ganapp://app-native/monitoramento-mapa/demanda-hidrica");
-    xhr.send(null);
+    xhr.send();
     /*window.addEventListener('error', function(e) {
       console.log("gerou erro");
       console.log(e);
@@ -39,7 +40,7 @@
 </head>
 <body>
 Redirecionando, aguarde por favor... try catch exp://<br />
-  Erro xhr: 
+  Erro xhr 2: 
   <div id="erro"></div>
 </body>
 </html>
