@@ -6,7 +6,18 @@
   <!--meta http-equiv="refresh"
         content="0; URL='ganapp://app-native/monitoramento-mapa/demanda-hidrica'"/-->
   <script>
-    window.addEventListener('error', function(e) {
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        if(xhr.readyState == 4 && xhr.status == 200) {
+            window.location.href = exportUrl;
+        }else{
+          console.log(xhr);
+          document.getElementById("erro").innerHtml = "asdfasdfasdf: "+xhr.status;
+        }
+    }
+    xhr.open('head',"ganapp://app-native/monitoramento-mapa/demanda-hidrica");
+    xhr.send(null);
+    /*window.addEventListener('error', function(e) {
       console.log("gerou erro");
       console.log(e);
       document.getElementById("erro").innerHtml = "asdf: "+e;
@@ -23,7 +34,7 @@
           window.location.href = 'exp://';
         }
       }, 1000);
-    }
+    }*/
   </script>
 </head>
 <body>
