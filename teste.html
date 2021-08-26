@@ -9,7 +9,8 @@
     try{
       window.location.href = "ganapp://app-native/monitoramento-mapa/demanda-hidrica";
     }catch(e){
-      document.getElementById("erro").html = "asdfasdfasdf: "+e;
+      console.log(e);
+      document.getElementById("erro").innerHtml = "asdfasdfasdf: "+e;
       setTimeout(function () {
         if (navigator.userAgent.toLowerCase().indexOf("android") > -1) {
           window.location.href = 'exp://';
