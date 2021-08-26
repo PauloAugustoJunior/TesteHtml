@@ -3,16 +3,20 @@
 <head>
   <meta charset="utf-8"/>
   <title>Meu Redirect</title>
-  <meta http-equiv="refresh"
-        content="0; URL='ganapp://app-native/monitoramento-mapa/demanda-hidrica?rotulo={{rotuloid}}'"/>
+  <!--meta http-equiv="refresh"
+        content="0; URL='ganapp://app-native/monitoramento-mapa/demanda-hidrica?rotulo={{rotuloid}}'"/-->
   <script>
-    setTimeout(function () {
-      if (navigator.userAgent.toLowerCase().indexOf("android") > -1) {
-        window.location.href = 'market://details?id=com.iac.gan';
-      }/* else if (navigator.userAgent.toLowerCase().indexOf("iphone") > -1 || navigator.userAgent.toLowerCase().indexOf("ipad") > -1) {
-        window.location.href = 'https://apps.apple.com/br/app/gan-gestão-de-alto-nível/id1529340462';
-      }*/
-    }, 1000);
+    try{
+      window.location.href = "ganapp://app-native/monitoramento-mapa/demanda-hidrica";
+    }catch(e){
+      setTimeout(function () {
+        if (navigator.userAgent.toLowerCase().indexOf("android") > -1) {
+          window.location.href = 'market://details?id=com.iac.gan';
+        } else if (navigator.userAgent.toLowerCase().indexOf("iphone") > -1 || navigator.userAgent.toLowerCase().indexOf("ipad") > -1) {
+          window.location.href = 'https://apps.apple.com/br/app/gan-gestão-de-alto-nível/id1529340462';
+        }
+      }, 1000);
+    }
   </script>
 </head>
 <body>
