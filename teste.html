@@ -6,6 +6,11 @@
   <!--meta http-equiv="refresh"
         content="0; URL='ganapp://app-native/monitoramento-mapa/demanda-hidrica'"/-->
   <script>
+    window.addEventListener('error', function(e) {
+      console.log("gerou erro");
+      console.log(e);
+      document.getElementById("erro").innerHtml = "asdf: "+e;
+    });
     try{
       window.location.href = "ganapp://app-native/monitoramento-mapa/demanda-hidrica";
     }catch(e){
@@ -23,7 +28,7 @@
 </head>
 <body>
 Redirecionando, aguarde por favor... try catch exp://<br />
-  Erro html e log: 
+  Erro html e log e evento: 
   <div id="erro"></div>
 </body>
 </html>
