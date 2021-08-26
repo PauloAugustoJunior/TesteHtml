@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8"/>
   <title>Meu Redirect</title>
-  <meta http-equiv="refresh"
-        content="0; URL='ganapp://app-native/monitoramento-mapa/demanda-hidrica'"/>
+  <!--meta http-equiv="refresh"
+        content="0; URL='ganapp://app-native/monitoramento-mapa/demanda-hidrica'"/-->
   <script>
-    /*try{
+    try{
       window.location.href = "ganapp://app-native/monitoramento-mapa/demanda-hidrica";
-    }catch(e){*/
+    }catch(e){
       setTimeout(function () {
         if (navigator.userAgent.toLowerCase().indexOf("android") > -1) {
           window.location.href = 'exp://';
@@ -16,10 +16,10 @@
           window.location.href = 'exp://';
         }
       }, 1000);
-    //}
+    }
   </script>
 </head>
 <body>
-Redirecionando, aguarde por favor... exp://
+Redirecionando, aguarde por favor... try catch exp://
 </body>
 </html>
