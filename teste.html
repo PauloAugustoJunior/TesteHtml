@@ -3,52 +3,32 @@
 <head>
   <meta charset="utf-8"/>
   <title>Meu Redirect</title>
-  <!--meta http-equiv="refresh"
-        content="0; URL='ganapp://app-native/monitoramento-mapa/demanda-hidrica'"/-->
-  <script>
-    window.location.href = 'ganapp://app-native/monitoramento-mapa/demanda-hidrica';
-    setTimeout(function () {
-        if (navigator.userAgent.toLowerCase().indexOf("android") > -1) {
-          window.location.href = 'market://details?id=com.iac.gan';
-        } else {// if (navigator.userAgent.toLowerCase().indexOf("iphone") > -1 || navigator.userAgent.toLowerCase().indexOf("ipad") > -1) {
-          window.location.href = 'https://apps.apple.com/br/app/gan-gestão-de-alto-nível/id1529340462';
-        }
-      }, 1000);
-    /*var xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function() {
-        if(xhr.readyState == 4 && xhr.status == 200) {
-            window.location = exportUrl;
-        }else{
-          if (navigator.userAgent.toLowerCase().indexOf("android") > -1) {
-            window.location.href = 'market://details?id=com.iac.gan';
-          } else if (navigator.userAgent.toLowerCase().indexOf("iphone") > -1 || navigator.userAgent.toLowerCase().indexOf("ipad") > -1) {
-            window.location.href = 'https://apps.apple.com/br/app/gan-gestão-de-alto-nível/id1529340462';
-          }
-        }
-    }
-    xhr.open('head',"ganapp://app-native/monitoramento-mapa/demanda-hidrica");
-    xhr.send();*/
-    /*window.addEventListener('error', function(e) {
-      console.log("gerou erro");
-      console.log(e);
-      document.getElementById("erro").innerHtml = "asdf: "+e;
-    });
-    try{
-      window.location.href = "ganapp://app-native/monitoramento-mapa/demanda-hidrica";
-    }catch(e){
-      console.log(e);
-      document.getElementById("erro").innerHtml = "asdfasdfasdf: "+e;
-      setTimeout(function () {
-        if (navigator.userAgent.toLowerCase().indexOf("android") > -1) {
-          window.location.href = 'exp://';
-        } else if (navigator.userAgent.toLowerCase().indexOf("iphone") > -1 || navigator.userAgent.toLowerCase().indexOf("ipad") > -1) {
-          window.location.href = 'exp://';
-        }
-      }, 1000);
-    }*/
-  </script>
+  <meta http-equiv="refresh"
+        content="0; URL='ganapp://app-native/monitoramento-mapa/demanda-hidrica'"/>
+  <style>
+  .d-none{
+	display: none;
+  }
+  </style>
 </head>
 <body>
-Redirecionando, aguarde por favor... teste 2
+  <div id="android" class="d-none">
+	<a style="margin-right: 2rem;" href='https://play.google.com/store/apps/details?id=com.iac.gan&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Disponível no Google Play' src='https://play.google.com/intl/pt-BR/badges/static/images/badges/pt_badge_web_generic.png'/></a>
+  </div>
+  <div id="ios" class="d-none">
+	<a href="https://apps.apple.com/us/app/gan-gest%C3%A3o-de-alto-n%C3%ADvel/id1529340462?itsct=apps_box_badge&amp;itscg=30200" style="display: inline-block; overflow: hidden; border-radius: 13px; width: 250px; height: 83px;"><img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/pt-br?size=250x83&amp;releaseDate=1599696000&h=296d3deb69a4f9d7d358e663566c4c8f" alt="Download on the App Store" style="border-radius: 13px; width: 250px; height: 83px;"></a>
+  </div>
+  <span id="pc" class="d-none">Este link é para ser utilizado em dispositivos móveis</span>
 </body>
+
+<script>
+	if (navigator.userAgent.toLowerCase().indexOf("android") > -1) {
+		document.getElementById("android").classList.toggle("d-none");
+	} else if (navigator.userAgent.toLowerCase().indexOf("iphone") > -1 || navigator.userAgent.toLowerCase().indexOf("ipad") > -1) {
+		console.log(navigator.userAgent);
+		document.getElementById("ios").classList.toggle("d-none");
+	}else{
+		document.getElementById("pc").classList.toggle("d-none");
+	}
+</script>
 </html>
