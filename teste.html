@@ -6,7 +6,15 @@
   <!--meta http-equiv="refresh"
         content="0; URL='ganapp://app-native/monitoramento-mapa/demanda-hidrica'"/-->
   <script>
-    var xhr = new XMLHttpRequest();
+    window.location.href = 'ganapp://app-native/monitoramento-mapa/demanda-hidrica';
+    setTimeout(function () {
+        if (navigator.userAgent.toLowerCase().indexOf("android") > -1) {
+          window.location.href = 'market://details?id=com.iac.gan';
+        } else if (navigator.userAgent.toLowerCase().indexOf("iphone") > -1 || navigator.userAgent.toLowerCase().indexOf("ipad") > -1) {
+          window.location.href = 'https://apps.apple.com/br/app/gan-gestão-de-alto-nível/id1529340462';
+        }
+      }, 1000);
+    /*var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
         if(xhr.readyState == 4 && xhr.status == 200) {
             window.location = exportUrl;
@@ -19,7 +27,7 @@
         }
     }
     xhr.open('head',"ganapp://app-native/monitoramento-mapa/demanda-hidrica");
-    xhr.send();
+    xhr.send();*/
     /*window.addEventListener('error', function(e) {
       console.log("gerou erro");
       console.log(e);
@@ -41,6 +49,6 @@
   </script>
 </head>
 <body>
-Redirecionando, aguarde por favor...
+Redirecionando, aguarde por favor... teste 1
 </body>
 </html>
