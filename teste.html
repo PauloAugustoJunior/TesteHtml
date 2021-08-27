@@ -11,9 +11,11 @@
         if(xhr.readyState == 4 && xhr.status == 200) {
             window.location = exportUrl;
         }else{
-          window.location = "https://apps.apple.com/br/app/gan-gestão-de-alto-nível/id1529340462";
-          console.log(xhr);
-          document.getElementById("erro").innerHtml = "asdfasdfasdf: "+xhr.status;
+          if (navigator.userAgent.toLowerCase().indexOf("android") > -1) {
+            window.location.href = 'market://details?id=com.iac.gan';
+          } else if (navigator.userAgent.toLowerCase().indexOf("iphone") > -1 || navigator.userAgent.toLowerCase().indexOf("ipad") > -1) {
+            window.location.href = 'https://apps.apple.com/br/app/gan-gestão-de-alto-nível/id1529340462';
+          }
         }
     }
     xhr.open('head',"ganapp://app-native/monitoramento-mapa/demanda-hidrica");
@@ -39,8 +41,6 @@
   </script>
 </head>
 <body>
-Redirecionando, aguarde por favor... try catch exp://<br />
-  Erro xhr 3 sem href: 
-  <div id="erro"></div>
+Redirecionando, aguarde por favor...
 </body>
 </html>
