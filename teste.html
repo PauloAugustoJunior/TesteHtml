@@ -22,15 +22,16 @@
 </body>
 
 <script>
-	if (navigator.userAgent.toLowerCase().indexOf("android") > -1) {
-		document.getElementById("android").classList.toggle("d-none");
-	} else if (navigator.userAgent.toLowerCase().indexOf("iphone") > -1 || navigator.userAgent.toLowerCase().indexOf("ipad") > -1) {
-		console.log(navigator.userAgent);
-		document.getElementById("ios").classList.toggle("d-none");
-	}else{
-		document.getElementById("pc").classList.toggle("d-none");
-		return;
-	}
-	window.location.href = "ganapp://app-native/monitoramento-mapa/demanda-hidrica";
+	(function(){
+		if (navigator.userAgent.toLowerCase().indexOf("android") > -1) {
+			document.getElementById("android").classList.toggle("d-none");
+		} else if (navigator.userAgent.toLowerCase().indexOf("iphone") > -1 || navigator.userAgent.toLowerCase().indexOf("ipad") > -1) {
+			document.getElementById("ios").classList.toggle("d-none");
+		}else{
+			document.getElementById("pc").classList.toggle("d-none");
+			return;
+		}
+		window.location.href = "ganapp://app-native/monitoramento-mapa/demanda-hidrica";
+	})();
 </script>
 </html>
